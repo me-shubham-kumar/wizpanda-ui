@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card" style="margin-top: 10px">
+        <h5 class="card-header">Hi, {{student?.name}}</h5>
+        <div class="card-body">
+            <p class="card-text">Click below button to get All Students List.</p>
+            <button type="button" (click)="showStudents()" class="btn btn-primary">Get Students</button>
+            <button type="button" (click)="hideStudents()" class="btn btn-primary" style="margin-left: 10px">Hide Students</button>
+            <div class="card" style="margin-top: 10px" *ngIf="show">
+                <div class="card-header">
+                    All Register Students List
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Mobile No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of allStudents; index as i">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{student.name}}</td>
+                                <td>{{student.email}}</td>
+                                <td>{{student.mobile}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
